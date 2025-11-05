@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-bg" style="min-height:72vh;">
+  <div class="container-fluid d-flex justify-content-center align-items-center" style="height:100%;">
+    <div class="card shadow p-5 text-center dashboard-widget fade-in">
+      <h1 class="display-1 fw-bold text-danger">404</h1>
+      <h3 class="mb-3 text-muted">Page not found</h3>
+      <p>The page you were looking for doesn't exist.<br>
+        <a href="{{ url_for('index') }}" class="btn btn-primary mt-4">Go Home</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

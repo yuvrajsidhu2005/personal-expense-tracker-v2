@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-bg" style="min-height:88vh;">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-xl-7 col-lg-9 col-md-10 col-12">
+        <div class="card shadow fade-in my-4 p-4 dashboard-widget">
+          <h1 class="mb-4 fw-bold text-primary">Accessibility Information</h1>
+          <p>This app is built to support:</p>
+          <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item">Keyboard-only navigation for all actions/forms/tables</li>
+            <li class="list-group-item">High-contrast colors and dark mode for low-vision users</li>
+            <li class="list-group-item">ARIA labels for important controls, headings, actions</li>
+            <li class="list-group-item">Screen reader compatibility for all pages</li>
+            <li class="list-group-item">Responsive layouts for mobile/tablet/computer use</li>
+          </ul>
+          <div class="alert alert-info">For accessibility audits, use online tools like <a href="https://wave.webaim.org/">WAVE</a> or <a href="https://deque.com/axe/">axe DevTools</a>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

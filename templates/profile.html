@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-bg" style="min-height:88vh;">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-xl-5 col-lg-6 col-md-8 col-12">
+        <div class="card shadow fade-in my-5 p-4 dashboard-widget">
+          <h2 class="mb-3 fw-bold text-center" style="color:#1565c0;">Profile Settings</h2>
+          <form method="POST" action="{{ url_for('profile') }}">
+            <div class="mb-4">
+              <label class="form-label fw-bold" for="username">Username</label>
+              <input type="text" class="form-control" id="username" value="{{ current_user.username }}" disabled>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-bold">Theme</label>
+              <div class="d-flex gap-2 theme-switcher">
+                <button type="button" class="btn btn-outline-primary theme-switch" data-theme="default">Default</button>
+                <button type="button" class="btn btn-outline-dark theme-switch" data-theme="dark">Dark</button>
+                <button type="button" class="btn btn-outline-warning theme-switch" data-theme="pastel">Pastel</button>
+              </div>
+            </div>
+            <div class="mb-4 budget-slider-group">
+              <label for="monthly_budget" class="form-label fw-bold">Monthly Budget</label>
+              <input type="range" min="0" max="100000" step="500" id="monthly_budget" name="monthly_budget"
+                     value="{{ current_user.monthly_budget if current_user.monthly_budget else 0 }}" class="form-range">
+              <span class="budget-amount ms-2">₹{{ current_user.monthly_budget if current_user.monthly_budget else 0 }}</span>
+              <div class="form-text">Set your monthly budget to get dashboard alerts when near/exceeding.</div>
+            </div>
+            <button type="submit" class="btn btn-success w-100 py-2 fs-5">Update Settings</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

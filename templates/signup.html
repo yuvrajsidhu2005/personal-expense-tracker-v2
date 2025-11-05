@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-bg" style="min-height:90vh;">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-xl-4 col-lg-6 col-md-8 col-12">
+        <div class="card fade-in shadow p-4 my-5 dashboard-widget">
+          <h2 class="mb-4 fw-bold text-center" style="color:#1565c0;">Sign Up</h2>
+          <form method="POST" action="{{ url_for('signup') }}">
+            <div class="mb-4">
+              <label class="form-label fw-bold" for="username">Username</label>
+              <input type="text" id="username" name="username" class="form-control" required autofocus maxlength="32">
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-bold" for="password">Password</label>
+              <input type="password" id="password" name="password" class="form-control" required maxlength="64">
+            </div>
+            <button type="submit" class="btn btn-success w-100 py-2 fs-5">Create Account</button>
+            <div class="mt-3 text-center">
+              <a href="{{ url_for('login') }}">Already have an account? Log In</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-bg" style="min-height:92vh;">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-xl-5 col-lg-6 col-md-8 col-12">
+        <div class="card shadow fade-in p-4 my-5 dashboard-widget">
+          <h2 class="mb-4 fw-bold text-center" style="color:#1565c0;">Add Category</h2>
+          <form method="POST" action="{{ url_for('add_category') }}">
+            <div class="mb-4">
+              <label for="name" class="form-label fw-bold">Category Name</label>
+              <input type="text" class="form-control" id="name" name="name" required maxlength="24">
+            </div>
+            <div class="mb-4">
+              <label for="color" class="form-label fw-bold">Color</label>
+              <input type="color" class="form-control form-control-color" name="color" id="color" value="#FFB347">
+            </div>
+            <div class="mb-4">
+              <label for="icon" class="form-label fw-bold">Icon/Emoji</label>
+              <input type="text" class="form-control" name="icon" id="icon" value="🍔" maxlength="2" required>
+              <div class="form-text">Paste any emoji or icon</div>
+            </div>
+            <div class="mb-4 budget-slider-group">
+              <label for="budget" class="form-label fw-bold">Budget (Optional)</label>
+              <input type="range" min="0" max="50000" step="500" id="budget" name="budget" value="0" class="form-range">
+              <span class="budget-amount ms-2">₹0</span>
+              <div class="form-text">Set a per-category budget to get alerts when exceeded.</div>
+            </div>
+            <button type="submit" class="btn btn-success w-100 py-2 fs-5">Add Category</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

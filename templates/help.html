@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-bg" style="min-height:88vh;">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-xl-7 col-lg-8 col-md-10 col-12">
+        <div class="card shadow fade-in my-4 p-4 dashboard-widget">
+          <h1 class="mb-4 fw-bold" style="color:#1565c0;">Help & FAQ</h1>
+          <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item">
+              <b>How do I use this expense tracker?</b>
+              <div>You can add, edit, and delete expenses. Analytics are shown on the dashboard. Expenses are temporary if you're a guest, or saved permanently if you create an account.</div>
+            </li>
+            <li class="list-group-item">
+              <b>How do I use tags?</b>
+              <div>Type tags (#food, #travel) in the tags field when adding expenses or income. Use the tags search in All Expenses to filter quickly.</div>
+            </li>
+            <li class="list-group-item">
+              <b>How do I set themes and budgets?</b>
+              <div>You can pick a theme and set your monthly budget in Profile Settings after logging in.</div>
+            </li>
+            <li class="list-group-item">
+              <b>How do I print or export my expenses?</b>
+              <div>Go to All Expenses, use the Print or Export CSV buttons. As a guest, you can still print/export all current session data.</div>
+            </li>
+            <li class="list-group-item">
+              <b>Can I restore my data if I log out?</b>
+              <div>For permanent save/restore, sign up or log in.</div>
+            </li>
+            <li class="list-group-item">
+              <b>Accessibility Features?</b>
+              <div>All pages support keyboard navigation, labels, and dark mode. More info in the Accessibility section.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

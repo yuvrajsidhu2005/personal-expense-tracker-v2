@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-bg" style="min-height:92vh;">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-xl-6 col-lg-7 col-md-9 col-12">
+        <div class="card shadow fade-in p-4 my-5 dashboard-widget">
+          <h2 class="mb-4 fw-bold text-center" style="color:#25a05d;">Add Income</h2>
+          <form method="POST" action="{{ url_for('add_income') }}">
+            <div class="mb-4">
+              <label for="amount" class="form-label fw-bold">Amount</label>
+              <input type="number" class="form-control" id="amount" name="amount" min="1" step="0.01" required autofocus>
+            </div>
+            <div class="mb-4">
+              <label for="source" class="form-label fw-bold">Source</label>
+              <input type="text" class="form-control" id="source" name="source" maxlength="100" required>
+            </div>
+            <div class="mb-4">
+              <label for="category" class="form-label fw-bold">Category</label>
+              <select class="form-select" id="category" name="category">
+                <option value="">(None)</option>
+                {% for cat in categories %}
+                  <option value="{{ cat.id }}">{{ cat.icon }} {{ cat.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-bold">Tags</label>
+              <input type="text" class="form-control tag-input" name="tags" id="income-tags"
+                     placeholder="#scholarship, #salary" maxlength="120">
+              <div class="form-text">Press Enter or comma to add multiple tags.</div>
+            </div>
+            <div class="mb-4">
+              <label for="currency" class="form-label fw-bold">Currency</label>
+              <select class="form-select" id="currency" name="currency">
+                <option value="INR">₹ INR</option>
+                <option value="USD">$ USD</option>
+                <option value="EUR">€ EUR</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label for="date" class="form-label fw-bold">Date</label>
+              <input type="date" class="form-control" id="date" name="date" required value="{{ now().strftime('%Y-%m-%d') }}">
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-bold">Recurring</label>
+              <div>
+                <input type="checkbox" id="recurring" name="recurring" value="1">
+                <label for="recurring">Recurring income</label>
+                <select class="form-select w-auto d-inline-block ms-2" name="interval" id="interval">
+                  <option value="monthly">Monthly</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="none">Once</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success w-100 py-2 fs-5">Add Income</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

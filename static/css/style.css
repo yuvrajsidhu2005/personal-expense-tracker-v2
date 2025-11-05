@@ -1,0 +1,165 @@
+body {
+    background: linear-gradient(135deg, #f8fafc, #f0f4f8 60%);
+    min-height: 100vh;
+    font-family: 'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif;
+    transition: background 0.4s;
+    font-size: 1rem;
+}
+/* Dashboard background and layout */
+.dashboard-bg {
+    background: linear-gradient(107deg,#ecf2fa 60%,#e0e7fa 100%);
+    min-height:100vh;
+}
+.container-fluid { padding: 0 18px; }
+/* Stat cards row */
+.dashboard-stats-row, .row.g-4 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* CARD/STAT CARD */
+.stat-card, .card, .dashboard-widget, .quick-btn, .chart-anim {
+    border-radius:14px;
+    box-shadow: 0 2px 18px #1976d222;
+    text-align:center;
+    background:#fff;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+    margin: 0 auto 18px auto;
+    transition: box-shadow .19s, background 0.4s, color 0.4s;
+}
+.stat-card:hover, .stat-card:focus,
+.card:hover, .card:focus,
+.dashboard-widget:hover, .dashboard-widget:focus,
+.chart-anim:hover, .chart-anim:focus,
+.quick-btn:hover, .quick-btn:focus {
+    /* ONLY shadow, NO transform/scale! */
+    box-shadow: 0 12px 44px #0dd7e018, 0 8px 24px #048cff24;
+    z-index: 2;
+    outline: none;
+}
+/* Quick actions, table, widgets, all dashboard styling... */
+.card-title, .card-body h4 {
+    color: #1976d2;
+}
+.table thead th {
+    background: #e3eaf5;
+    color: #2962ff;
+    border-bottom: 2px solid #b6c6e2;
+    user-select: none;
+    cursor: pointer;
+}
+.table-striped > tbody > tr:nth-of-type(odd) { background-color: #f3f6fc; }
+.table tbody tr:hover, .table tbody tr:focus-within {
+    background: #e6f0ff;
+    transition: background 0.25s;
+    outline: 2px solid #1976d2;
+}
+.btn, .form-control, .form-select {
+    min-height: 2.5rem;
+    font-size: 1rem;
+}
+.btn:focus, .form-control:focus, .form-select:focus {
+    outline: 3px solid #1976d2 !important;
+    box-shadow: 0 0 0 3px #1976d2aa;
+}
+.btn-primary, .btn-success {
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 2px 7px rgba(41,98,255,0.07);
+    transition: background 0.15s;
+}
+.btn-primary:hover, .btn-success:hover, .btn-primary:focus, .btn-success:focus {
+    background: #1565c0;
+    color: #fff;
+}
+.btn-danger {
+    border-radius: 7px;
+    font-weight: 600;
+    background: #f44336;
+    border: none;
+    box-shadow: 0 2px 7px rgba(220,70,70,0.06);
+}
+.btn-danger:hover, .btn-danger:focus { background: #c62828; color: #fff;}
+.btn-warning { color: #563600; background: #ffd600; border: none; }
+.btn-warning:hover, .btn-warning:focus { background: #ffc107; color: #3b2c00;}
+.alert { border-radius: 12px; animation: fadeIn 0.6s; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(-30px);} to { opacity:1; transform:translateY(0);} }
+canvas#pieChart, #catChart, #trendChart, .chart-anim {
+    max-width: 100%;
+    margin-bottom: 16px;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 2px 10px rgba(180, 200, 255, 0.12);
+    border-radius: 19px;
+}
+canvas:hover, #catChart:hover, #trendChart:hover, .chart-anim:hover {
+    box-shadow: 0 18px 36px #11ffe542, 0 12px 38px #0098fc22;
+}
+.expense-row-animate {
+    animation: fadeInRow 0.7s ease-out;
+}
+@keyframes fadeInRow {
+    from {opacity: 0; transform: translateY(-14px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+input[type=date], input[type=time], select, input[type=text], input[type=number], input[type=color] {
+    min-width: 80px;
+}
+input[type=search]::-webkit-search-cancel-button { display: none; }
+input::placeholder { color: #9db3cc; opacity: 1;}
+input:focus::placeholder { color: #b0caea; opacity: 0.7;}
+.toast {
+    background: #222d39;
+    color: #fff;
+}
+.toast-header {
+    background: #172234;
+    color: #fff;
+}
+.quick-btn { transition: box-shadow .19s; font-weight:600; font-size:1.15rem;}
+.quick-btn:hover, .quick-btn:focus { box-shadow: 0 10px 32px #2193b046; }
+.tag-input { min-width:140px; margin-right:5px; }
+.badge.tagchip { cursor: pointer; }
+@media (max-width: 992px) {
+    .stat-card { flex: 1 1 45%; }
+    .table, .table thead, .table tbody, .table th, .table td, .table tr { font-size: 0.97rem;}
+}
+@media (max-width: 576px) {
+    .card, .table { font-size: 0.97rem; }
+    .navbar-brand {font-size: 1.08rem;}
+    .card-body h3, .card-body h4 {font-size: 1.1rem;}
+    .table td, .table th {font-size: 0.92rem;}
+    .stat-card { min-width: 100px; max-width: 98vw; padding: 8px;}
+}
+/* DARK MODE OVERRIDES */
+body.dark-mode {
+    background: linear-gradient(135deg,#222f39 60%,#111722 100%);
+    color: #f6fafc;
+}
+body.dark-mode .navbar {
+    background: linear-gradient(90deg,#15234f 60%,#162b60 100%);
+    box-shadow: 0 4px 18px #030a1ebb;
+}
+body.dark-mode .navbar-brand, body.dark-mode .nav-link { color: #fff !important; }
+body.dark-mode .card, body.dark-mode .modal-content { background: #232d39; color: #d4e6f3; box-shadow: 0 4px 20px #040a1b35; }
+body.dark-mode .card-title, body.dark-mode .card-body h4 { color: #66a9ff; }
+body.dark-mode .table, body.dark-mode .table-striped > tbody > tr:nth-of-type(odd) { background: #192229; color: #d4e6f3; }
+body.dark-mode .table thead th { background: #334056; color: #fff; }
+body.dark-mode .table tbody tr:hover, body.dark-mode .table tbody tr:focus-within { background: #263c58; }
+body.dark-mode .modal-content { background: #202833; }
+body.dark-mode .form-control, body.dark-mode input, body.dark-mode select { background: #1c2230; color: #d4e6f3; border-color: #405984;}
+body.dark-mode .form-control:focus { border-color: #89bbff; background: #253146; color: #fff;}
+body.dark-mode .btn-primary, body-dark-mode .btn-success { background: #2962ff; color: #fff; }
+body.dark-mode .btn-warning { background: #eebd47; color: #684700; }
+body.dark-mode .btn-danger { background: #e57373; }
+body.dark-mode .btn-danger:hover { background: #b61827; }
+body.dark-mode .alert { background: #1c2b38; color: #fff; border: 1px solid #325074; }
+body.dark-mode .btn-outline-light { color: #fff; border-color: #fff; }
+body.dark-mode .btn-outline-light:hover { background: #23395d; color: #ffd; }
+body.dark-mode .table td, body.dark-mode .table th { color: #e6f2ff; }
+body.dark-mode .toast { background: #1d232b; color: #fff; }
+body.dark-mode .toast-header { background: #222b44; color: #fff; }
