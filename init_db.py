@@ -3,9 +3,10 @@ from models import Category
 
 def init_database():
     with app.app_context():
-        db.create_all()
-        print("✅ Database tables created!")
-        
+        db.drop_all()      # This will drop ALL tables
+        db.create_all()    # This will re-create them based on your models!
+        print("✅ Database tables re-created!")
+
         default_categories = [
             {"name": "Food", "color": "#FFB347", "icon": "🍔"},
             {"name": "Transport", "color": "#B0E0E6", "icon": "🚌"},
@@ -15,12 +16,12 @@ def init_database():
             {"name": "Shopping", "color": "#FF69B4", "icon": "🛒"},
             {"name": "Other", "color": "#CCCCCC", "icon": "🔖"},
         ]
-        
+
         for cat_data in default_categories:
             if not Category.query.filter_by(name=cat_data["name"]).first():
                 category = Category(**cat_data)
                 db.session.add(category)
-        
+
         db.session.commit()
         print("✅ Default categories created!")
 
