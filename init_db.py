@@ -4,6 +4,7 @@ from models import Category
 def init_database():
     with app.app_context():
         db.drop_all()      # This will drop ALL tables
+        db.engine.execute('DROP TABLE IF EXISTS "user" CASCADE;')
         db.create_all()    # This will re-create them based on your models!
         print("✅ Database tables re-created!")
 
